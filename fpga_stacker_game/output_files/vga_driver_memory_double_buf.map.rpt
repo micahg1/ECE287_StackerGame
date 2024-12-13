@@ -1,0 +1,1645 @@
+Analysis & Synthesis report for vga_driver_memory_double_buf
+Thu Oct 31 11:46:33 2024
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |vga_driver_memory_double_buf|wr_id
+ 10. State Machine - |vga_driver_memory_double_buf|S
+ 11. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db19|S
+ 12. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db18|S
+ 13. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db17|S
+ 14. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db16|S
+ 15. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db15|S
+ 16. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db14|S
+ 17. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db13|S
+ 18. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db12|S
+ 19. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db11|S
+ 20. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db10|S
+ 21. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db7|S
+ 22. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db6|S
+ 23. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db5|S
+ 24. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db4|S
+ 25. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db3|S
+ 26. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db2|S
+ 27. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db1|S
+ 28. State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db0|S
+ 29. Registers Removed During Synthesis
+ 30. Removed Registers Triggering Further Register Optimizations
+ 31. General Register Statistics
+ 32. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 33. Source assignments for vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated
+ 34. Source assignments for vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated
+ 35. Parameter Settings for User Entity Instance: Top-level Entity: |vga_driver_memory_double_buf
+ 36. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db0
+ 37. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db1
+ 38. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db2
+ 39. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db3
+ 40. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db4
+ 41. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db5
+ 42. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db6
+ 43. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db7
+ 44. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db10
+ 45. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db11
+ 46. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db12
+ 47. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db13
+ 48. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db14
+ 49. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db15
+ 50. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db16
+ 51. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db17
+ 52. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db18
+ 53. Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db19
+ 54. Parameter Settings for User Entity Instance: vga_driver:the_vga
+ 55. Parameter Settings for User Entity Instance: vga_frame:vga_memory0|altsyncram:altsyncram_component
+ 56. Parameter Settings for User Entity Instance: vga_frame:vga_memory1|altsyncram:altsyncram_component
+ 57. altsyncram Parameter Settings by Entity Instance
+ 58. Port Connectivity Checks: "vga_driver:the_vga"
+ 59. Port Connectivity Checks: "debounce_switches:db"
+ 60. Post-Synthesis Netlist Statistics for Top Partition
+ 61. Elapsed Time Per Partition
+ 62. Analysis & Synthesis Messages
+ 63. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Oct 31 11:46:33 2024          ;
+; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                   ; vga_driver_memory_double_buf                   ;
+; Top-level Entity Name           ; vga_driver_memory_double_buf                   ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 85                                             ;
+; Total pins                      ; 82                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 1,572,864                                      ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                                 ;
++---------------------------------------------------------------------------------+------------------------------+------------------------------+
+; Option                                                                          ; Setting                      ; Default Value                ;
++---------------------------------------------------------------------------------+------------------------------+------------------------------+
+; Device                                                                          ; 5CSEMA5F31C6                 ;                              ;
+; Top-level entity name                                                           ; vga_driver_memory_double_buf ; vga_driver_memory_double_buf ;
+; Family name                                                                     ; Cyclone V                    ; Cyclone V                    ;
+; Maximum processors allowed for parallel compilation                             ; All                          ;                              ;
+; Use smart compilation                                                           ; Off                          ; Off                          ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                           ; On                           ;
+; Enable compact report table                                                     ; Off                          ; Off                          ;
+; Restructure Multiplexers                                                        ; Auto                         ; Auto                         ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                          ; Off                          ;
+; Create Debugging Nodes for IP Cores                                             ; Off                          ; Off                          ;
+; Preserve fewer node names                                                       ; On                           ; On                           ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                       ; Enable                       ;
+; Verilog Version                                                                 ; Verilog_2001                 ; Verilog_2001                 ;
+; VHDL Version                                                                    ; VHDL_1993                    ; VHDL_1993                    ;
+; State Machine Processing                                                        ; Auto                         ; Auto                         ;
+; Safe State Machine                                                              ; Off                          ; Off                          ;
+; Extract Verilog State Machines                                                  ; On                           ; On                           ;
+; Extract VHDL State Machines                                                     ; On                           ; On                           ;
+; Ignore Verilog initial constructs                                               ; Off                          ; Off                          ;
+; Iteration limit for constant Verilog loops                                      ; 5000                         ; 5000                         ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                          ; 250                          ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                           ; On                           ;
+; Infer RAMs from Raw Logic                                                       ; On                           ; On                           ;
+; Parallel Synthesis                                                              ; On                           ; On                           ;
+; DSP Block Balancing                                                             ; Auto                         ; Auto                         ;
+; NOT Gate Push-Back                                                              ; On                           ; On                           ;
+; Power-Up Don't Care                                                             ; On                           ; On                           ;
+; Remove Redundant Logic Cells                                                    ; Off                          ; Off                          ;
+; Remove Duplicate Registers                                                      ; On                           ; On                           ;
+; Ignore CARRY Buffers                                                            ; Off                          ; Off                          ;
+; Ignore CASCADE Buffers                                                          ; Off                          ; Off                          ;
+; Ignore GLOBAL Buffers                                                           ; Off                          ; Off                          ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                          ; Off                          ;
+; Ignore LCELL Buffers                                                            ; Off                          ; Off                          ;
+; Ignore SOFT Buffers                                                             ; On                           ; On                           ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                          ; Off                          ;
+; Optimization Technique                                                          ; Balanced                     ; Balanced                     ;
+; Carry Chain Length                                                              ; 70                           ; 70                           ;
+; Auto Carry Chains                                                               ; On                           ; On                           ;
+; Auto Open-Drain Pins                                                            ; On                           ; On                           ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                          ; Off                          ;
+; Auto ROM Replacement                                                            ; On                           ; On                           ;
+; Auto RAM Replacement                                                            ; On                           ; On                           ;
+; Auto DSP Block Replacement                                                      ; On                           ; On                           ;
+; Auto Shift Register Replacement                                                 ; Auto                         ; Auto                         ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                         ; Auto                         ;
+; Auto Clock Enable Replacement                                                   ; On                           ; On                           ;
+; Strict RAM Replacement                                                          ; Off                          ; Off                          ;
+; Allow Synchronous Control Signals                                               ; On                           ; On                           ;
+; Force Use of Synchronous Clear Signals                                          ; Off                          ; Off                          ;
+; Auto Resource Sharing                                                           ; Off                          ; Off                          ;
+; Allow Any RAM Size For Recognition                                              ; Off                          ; Off                          ;
+; Allow Any ROM Size For Recognition                                              ; Off                          ; Off                          ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                          ; Off                          ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                           ; On                           ;
+; Ignore translate_off and synthesis_off directives                               ; Off                          ; Off                          ;
+; Timing-Driven Synthesis                                                         ; On                           ; On                           ;
+; Report Parameter Settings                                                       ; On                           ; On                           ;
+; Report Source Assignments                                                       ; On                           ; On                           ;
+; Report Connectivity Checks                                                      ; On                           ; On                           ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                          ; Off                          ;
+; Synchronization Register Chain Length                                           ; 3                            ; 3                            ;
+; Power Optimization During Synthesis                                             ; Normal compilation           ; Normal compilation           ;
+; HDL message level                                                               ; Level2                       ; Level2                       ;
+; Suppress Register Optimization Related Messages                                 ; Off                          ; Off                          ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                         ; 5000                         ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                         ; 5000                         ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                          ; 100                          ;
+; Clock MUX Protection                                                            ; On                           ; On                           ;
+; Auto Gated Clock Conversion                                                     ; Off                          ; Off                          ;
+; Block Design Naming                                                             ; Auto                         ; Auto                         ;
+; SDC constraint protection                                                       ; Off                          ; Off                          ;
+; Synthesis Effort                                                                ; Auto                         ; Auto                         ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                           ; On                           ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                          ; Off                          ;
+; Analysis & Synthesis Message Level                                              ; Medium                       ; Medium                       ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                         ; Auto                         ;
+; Resource Aware Inference For Block RAM                                          ; On                           ; On                           ;
+; Automatic Parallel Synthesis                                                    ; On                           ; On                           ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                          ; Off                          ;
++---------------------------------------------------------------------------------+------------------------------+------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 28          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processors 4-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                               ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                                                                                       ; Library ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; vga_frame.v                      ; yes             ; User Wizard-Generated File       ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_frame.v                    ;         ;
+; debounce.v                       ; yes             ; User Verilog HDL File            ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v                     ;         ;
+; vga_driver_memory_double_buf.v   ; yes             ; User Verilog HDL File            ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v ;         ;
+; vga_driver.v                     ; yes             ; User Verilog HDL File            ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver.v                   ;         ;
+; image.mif                        ; yes             ; User Memory Initialization File  ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/image.mif                      ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf                                                                           ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc                                                                    ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc                                                                              ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc                                                                           ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc                                                                           ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc                                                                            ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc                                                                               ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc                                                                               ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc                                                                             ;         ;
+; db/altsyncram_1go1.tdf           ; yes             ; Auto-Generated Megafunction      ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf         ;         ;
+; db/decode_8la.tdf                ; yes             ; Auto-Generated Megafunction      ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/decode_8la.tdf              ;         ;
+; db/decode_11a.tdf                ; yes             ; Auto-Generated Megafunction      ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/decode_11a.tdf              ;         ;
+; db/mux_6hb.tdf                   ; yes             ; Auto-Generated Megafunction      ; H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/mux_6hb.tdf                 ;         ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 168            ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 276            ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 59             ;
+;     -- 5 input functions                    ; 44             ;
+;     -- 4 input functions                    ; 37             ;
+;     -- <=3 input functions                  ; 136            ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 85             ;
+;                                             ;                ;
+; I/O pins                                    ; 82             ;
+; Total MLAB memory bits                      ; 0              ;
+; Total block memory bits                     ; 1572864        ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 277            ;
+; Total fan-out                               ; 4759           ;
+; Average fan-out                             ; 6.64           ;
++---------------------------------------------+----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                          ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+------------------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                       ; Entity Name                  ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+------------------------------+--------------+
+; |vga_driver_memory_double_buf             ; 276 (222)           ; 85 (60)                   ; 1572864           ; 0          ; 82   ; 0            ; |vga_driver_memory_double_buf                                                                                                             ; vga_driver_memory_double_buf ; work         ;
+;    |vga_driver:the_vga|                   ; 38 (38)             ; 21 (21)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_driver_memory_double_buf|vga_driver:the_vga                                                                                          ; vga_driver                   ; work         ;
+;    |vga_frame:vga_memory0|                ; 8 (0)               ; 2 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |vga_driver_memory_double_buf|vga_frame:vga_memory0                                                                                       ; vga_frame                    ; work         ;
+;       |altsyncram:altsyncram_component|   ; 8 (0)               ; 2 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |vga_driver_memory_double_buf|vga_frame:vga_memory0|altsyncram:altsyncram_component                                                       ; altsyncram                   ; work         ;
+;          |altsyncram_1go1:auto_generated| ; 8 (0)               ; 2 (2)                     ; 786432            ; 0          ; 0    ; 0            ; |vga_driver_memory_double_buf|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated                        ; altsyncram_1go1              ; work         ;
+;             |decode_11a:rden_decode|      ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |vga_driver_memory_double_buf|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_11a:rden_decode ; decode_11a                   ; work         ;
+;             |decode_8la:decode3|          ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |vga_driver_memory_double_buf|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_8la:decode3     ; decode_8la                   ; work         ;
+;    |vga_frame:vga_memory1|                ; 8 (0)               ; 2 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |vga_driver_memory_double_buf|vga_frame:vga_memory1                                                                                       ; vga_frame                    ; work         ;
+;       |altsyncram:altsyncram_component|   ; 8 (0)               ; 2 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |vga_driver_memory_double_buf|vga_frame:vga_memory1|altsyncram:altsyncram_component                                                       ; altsyncram                   ; work         ;
+;          |altsyncram_1go1:auto_generated| ; 8 (0)               ; 2 (2)                     ; 786432            ; 0          ; 0    ; 0            ; |vga_driver_memory_double_buf|vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated                        ; altsyncram_1go1              ; work         ;
+;             |decode_11a:rden_decode|      ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |vga_driver_memory_double_buf|vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_11a:rden_decode ; decode_11a                   ; work         ;
+;             |decode_8la:decode3|          ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |vga_driver_memory_double_buf|vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_8la:decode3     ; decode_8la                   ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                      ;
++-------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------+-----------+
+; Name                                                                                            ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF       ;
++-------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------+-----------+
+; vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 32768        ; 24           ; --           ; --           ; 786432 ; image.mif ;
+; vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 32768        ; 24           ; --           ; --           ; 786432 ; image.mif ;
++-------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------+-----------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|wr_id                                                         ;
++----------------------------+----------------------+----------------------------+----------------------------+
+; Name                       ; wr_id.MEM_INIT_WRITE ; wr_id.MEM_M0_WRITE_M1_READ ; wr_id.MEM_M0_READ_M1_WRITE ;
++----------------------------+----------------------+----------------------------+----------------------------+
+; wr_id.MEM_INIT_WRITE       ; 0                    ; 0                          ; 0                          ;
+; wr_id.MEM_M0_READ_M1_WRITE ; 1                    ; 0                          ; 1                          ;
+; wr_id.MEM_M0_WRITE_M1_READ ; 1                    ; 1                          ; 0                          ;
++----------------------------+----------------------+----------------------------+----------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|S                                                                                              ;
++------------------+---------------+-----------------+------------------+------------+-----------+------------+------------+---------+---------+
+; Name             ; S.RFM_DRAWING ; S.RFM_INIT_WAIT ; S.RFM_INIT_START ; S.W2M_DONE ; S.W2M_INC ; S.W2M_COND ; S.W2M_INIT ; S.START ; S.ERROR ;
++------------------+---------------+-----------------+------------------+------------+-----------+------------+------------+---------+---------+
+; S.START          ; 0             ; 0               ; 0                ; 0          ; 0         ; 0          ; 0          ; 0       ; 0       ;
+; S.W2M_INIT       ; 0             ; 0               ; 0                ; 0          ; 0         ; 0          ; 1          ; 1       ; 0       ;
+; S.W2M_COND       ; 0             ; 0               ; 0                ; 0          ; 0         ; 1          ; 0          ; 1       ; 0       ;
+; S.W2M_INC        ; 0             ; 0               ; 0                ; 0          ; 1         ; 0          ; 0          ; 1       ; 0       ;
+; S.W2M_DONE       ; 0             ; 0               ; 0                ; 1          ; 0         ; 0          ; 0          ; 1       ; 0       ;
+; S.RFM_INIT_START ; 0             ; 0               ; 1                ; 0          ; 0         ; 0          ; 0          ; 1       ; 0       ;
+; S.RFM_INIT_WAIT  ; 0             ; 1               ; 0                ; 0          ; 0         ; 0          ; 0          ; 1       ; 0       ;
+; S.RFM_DRAWING    ; 1             ; 0               ; 0                ; 0          ; 0         ; 0          ; 0          ; 1       ; 0       ;
+; S.ERROR          ; 0             ; 0               ; 0                ; 0          ; 0         ; 0          ; 0          ; 1       ; 1       ;
++------------------+---------------+-----------------+------------------+------------+-----------+------------+------------+---------+---------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db19|S ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START     ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0           ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1           ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1           ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1           ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1           ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1           ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db18|S ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START     ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0           ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1           ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1           ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1           ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1           ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1           ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db17|S ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START     ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0           ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1           ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1           ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1           ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1           ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1           ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db16|S ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START     ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0           ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1           ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1           ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1           ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1           ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1           ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db15|S ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START     ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0           ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1           ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1           ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1           ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1           ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1           ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db14|S ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START     ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0           ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1           ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1           ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1           ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1           ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1           ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db13|S ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START     ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0           ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1           ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1           ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1           ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1           ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1           ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db12|S ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START     ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0           ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1           ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1           ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1           ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1           ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1           ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db11|S ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START     ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0           ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1           ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1           ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1           ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1           ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1           ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db10|S ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START     ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0           ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1           ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1           ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1           ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1           ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1           ;
++--------------+---------+--------------+--------+-------------+-------+-------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db7|S ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START    ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0          ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1          ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1          ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1          ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1          ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1          ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db6|S ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START    ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0          ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1          ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1          ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1          ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1          ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1          ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db5|S ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START    ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0          ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1          ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1          ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1          ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1          ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1          ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db4|S ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START    ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0          ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1          ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1          ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1          ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1          ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1          ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db3|S ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START    ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0          ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1          ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1          ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1          ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1          ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1          ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db2|S ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START    ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0          ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1          ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1          ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1          ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1          ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1          ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db1|S ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START    ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0          ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1          ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1          ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1          ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1          ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1          ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------+
+; State Machine - |vga_driver_memory_double_buf|debounce_switches:db|debounce:db0|S ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; Name         ; S.ERROR ; S.MAYBE_ZERO ; S.ZERO ; S.MAYBE_ONE ; S.ONE ; S.START    ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+; S.START      ; 0       ; 0            ; 0      ; 0           ; 0     ; 0          ;
+; S.ONE        ; 0       ; 0            ; 0      ; 0           ; 1     ; 1          ;
+; S.MAYBE_ONE  ; 0       ; 0            ; 0      ; 1           ; 0     ; 1          ;
+; S.ZERO       ; 0       ; 0            ; 1      ; 0           ; 0     ; 1          ;
+; S.MAYBE_ZERO ; 0       ; 1            ; 0      ; 0           ; 0     ; 1          ;
+; S.ERROR      ; 1       ; 0            ; 0      ; 0           ; 0     ; 1          ;
++--------------+---------+--------------+--------+-------------+-------+------------+
+
+
++------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                       ;
++-------------------------------------------------+----------------------------------------+
+; Register name                                   ; Reason for Removal                     ;
++-------------------------------------------------+----------------------------------------+
+; write_buf_mem_data[1..7]                        ; Merged with write_buf_mem_data[0]      ;
+; write_buf_mem_data[8,9,11..15]                  ; Merged with write_buf_mem_data[10]     ;
+; write_buf_mem_data[17..23]                      ; Merged with write_buf_mem_data[16]     ;
+; debounce_switches:db|debounce:db19|S.MAYBE_ONE  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db18|S.MAYBE_ONE  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db17|S.MAYBE_ONE  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db16|S.MAYBE_ONE  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db15|S.MAYBE_ONE  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db14|S.MAYBE_ONE  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db13|S.MAYBE_ONE  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db12|S.MAYBE_ONE  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db19|S.START      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db19|S.ZERO       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db18|S.START      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db18|S.ZERO       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db17|S.START      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db17|S.ZERO       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db16|S.START      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db16|S.ZERO       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db15|S.START      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db15|S.ZERO       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db14|S.START      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db14|S.ZERO       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db13|S.START      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db13|S.ZERO       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db12|S.START      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db12|S.ZERO       ; Lost fanout                            ;
+; S~4                                             ; Lost fanout                            ;
+; S~5                                             ; Lost fanout                            ;
+; S~6                                             ; Lost fanout                            ;
+; S~8                                             ; Lost fanout                            ;
+; S~9                                             ; Lost fanout                            ;
+; S~10                                            ; Lost fanout                            ;
+; S~11                                            ; Lost fanout                            ;
+; debounce_switches:db|debounce:db19|S~4          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db19|S~5          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db19|S~6          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db18|S~4          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db18|S~5          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db18|S~6          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db17|S~4          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db17|S~5          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db17|S~6          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db16|S~4          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db16|S~5          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db16|S~6          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db15|S~4          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db15|S~5          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db15|S~6          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db14|S~4          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db14|S~5          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db14|S~6          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db13|S~4          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db13|S~5          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db13|S~6          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db12|S~4          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db12|S~5          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db12|S~6          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db11|S~4          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db11|S~5          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db11|S~6          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db10|S~4          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db10|S~5          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db10|S~6          ; Lost fanout                            ;
+; debounce_switches:db|debounce:db7|S~4           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db7|S~5           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db7|S~6           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db6|S~4           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db6|S~5           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db6|S~6           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db5|S~4           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db5|S~5           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db5|S~6           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db4|S~4           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db4|S~5           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db4|S~6           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db3|S~4           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db3|S~5           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db3|S~6           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db2|S~4           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db2|S~5           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db2|S~6           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db1|S~4           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db1|S~5           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db1|S~6           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db0|S~4           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db0|S~5           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db0|S~6           ; Lost fanout                            ;
+; debounce_switches:db|debounce:db19|count[0..7]  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db18|count[0..7]  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db17|count[0..7]  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db16|count[0..7]  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db15|count[0..7]  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db14|count[0..7]  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db13|count[0..7]  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db12|count[0..7]  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db11|count[0..7]  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db10|count[0..7]  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db7|count[0..7]   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db6|count[0..7]   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db5|count[0..7]   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db4|count[0..7]   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db3|count[0..7]   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db2|count[0..7]   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db1|count[0..7]   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db0|count[0..7]   ; Lost fanout                            ;
+; wr_id.MEM_INIT_WRITE                            ; Lost fanout                            ;
+; debounce_switches:db|debounce:db19|S.ONE        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db19|S.MAYBE_ZERO ; Lost fanout                            ;
+; debounce_switches:db|debounce:db19|S.ERROR      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db18|S.ONE        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db18|S.MAYBE_ZERO ; Lost fanout                            ;
+; debounce_switches:db|debounce:db18|S.ERROR      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db17|S.ONE        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db17|S.MAYBE_ZERO ; Lost fanout                            ;
+; debounce_switches:db|debounce:db17|S.ERROR      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db16|S.ONE        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db16|S.MAYBE_ZERO ; Lost fanout                            ;
+; debounce_switches:db|debounce:db16|S.ERROR      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db15|S.ONE        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db15|S.MAYBE_ZERO ; Lost fanout                            ;
+; debounce_switches:db|debounce:db15|S.ERROR      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db14|S.ONE        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db14|S.MAYBE_ZERO ; Lost fanout                            ;
+; debounce_switches:db|debounce:db14|S.ERROR      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db13|S.ONE        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db13|S.MAYBE_ZERO ; Lost fanout                            ;
+; debounce_switches:db|debounce:db13|S.ERROR      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db12|S.ONE        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db12|S.MAYBE_ZERO ; Lost fanout                            ;
+; debounce_switches:db|debounce:db12|S.ERROR      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db11|S.START      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db11|S.ONE        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db11|S.MAYBE_ONE  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db11|S.ZERO       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db11|S.MAYBE_ZERO ; Lost fanout                            ;
+; debounce_switches:db|debounce:db11|S.ERROR      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db10|S.START      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db10|S.ONE        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db10|S.MAYBE_ONE  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db10|S.ZERO       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db10|S.MAYBE_ZERO ; Lost fanout                            ;
+; debounce_switches:db|debounce:db10|S.ERROR      ; Lost fanout                            ;
+; debounce_switches:db|debounce:db7|S.START       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db7|S.ONE         ; Lost fanout                            ;
+; debounce_switches:db|debounce:db7|S.MAYBE_ONE   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db7|S.ZERO        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db7|S.MAYBE_ZERO  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db7|S.ERROR       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db6|S.START       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db6|S.ONE         ; Lost fanout                            ;
+; debounce_switches:db|debounce:db6|S.MAYBE_ONE   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db6|S.ZERO        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db6|S.MAYBE_ZERO  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db6|S.ERROR       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db5|S.START       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db5|S.ONE         ; Lost fanout                            ;
+; debounce_switches:db|debounce:db5|S.MAYBE_ONE   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db5|S.ZERO        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db5|S.MAYBE_ZERO  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db5|S.ERROR       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db4|S.START       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db4|S.ONE         ; Lost fanout                            ;
+; debounce_switches:db|debounce:db4|S.MAYBE_ONE   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db4|S.ZERO        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db4|S.MAYBE_ZERO  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db4|S.ERROR       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db3|S.START       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db3|S.ONE         ; Lost fanout                            ;
+; debounce_switches:db|debounce:db3|S.MAYBE_ONE   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db3|S.ZERO        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db3|S.MAYBE_ZERO  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db3|S.ERROR       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db2|S.START       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db2|S.ONE         ; Lost fanout                            ;
+; debounce_switches:db|debounce:db2|S.MAYBE_ONE   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db2|S.ZERO        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db2|S.MAYBE_ZERO  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db2|S.ERROR       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db1|S.START       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db1|S.ONE         ; Lost fanout                            ;
+; debounce_switches:db|debounce:db1|S.MAYBE_ONE   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db1|S.ZERO        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db1|S.MAYBE_ZERO  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db1|S.ERROR       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db0|S.START       ; Lost fanout                            ;
+; debounce_switches:db|debounce:db0|S.ONE         ; Lost fanout                            ;
+; debounce_switches:db|debounce:db0|S.MAYBE_ONE   ; Lost fanout                            ;
+; debounce_switches:db|debounce:db0|S.ZERO        ; Lost fanout                            ;
+; debounce_switches:db|debounce:db0|S.MAYBE_ZERO  ; Lost fanout                            ;
+; debounce_switches:db|debounce:db0|S.ERROR       ; Lost fanout                            ;
+; S.ERROR                                         ; Stuck at GND due to stuck port data_in ;
+; write_buf_mem_address[15]                       ; Lost fanout                            ;
+; Total Number of Removed Registers = 337         ;                                        ;
++-------------------------------------------------+----------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                         ;
++---------------------------------------------+--------------------+--------------------------------------------------+
+; Register name                               ; Reason for Removal ; Registers Removed due to This Register           ;
++---------------------------------------------+--------------------+--------------------------------------------------+
+; debounce_switches:db|debounce:db19|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db19|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db19|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db19|S.ERROR       ;
+; debounce_switches:db|debounce:db18|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db18|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db18|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db18|S.ERROR       ;
+; debounce_switches:db|debounce:db17|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db17|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db17|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db17|S.ERROR       ;
+; debounce_switches:db|debounce:db16|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db16|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db16|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db16|S.ERROR       ;
+; debounce_switches:db|debounce:db15|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db15|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db15|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db15|S.ERROR       ;
+; debounce_switches:db|debounce:db14|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db14|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db14|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db14|S.ERROR       ;
+; debounce_switches:db|debounce:db13|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db13|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db13|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db13|S.ERROR       ;
+; debounce_switches:db|debounce:db12|S.ZERO   ; Lost Fanouts       ; debounce_switches:db|debounce:db12|S.ONE,        ;
+;                                             ;                    ; debounce_switches:db|debounce:db12|S.MAYBE_ZERO, ;
+;                                             ;                    ; debounce_switches:db|debounce:db12|S.ERROR       ;
+; debounce_switches:db|debounce:db19|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db19|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db19|count[7]      ;
+; debounce_switches:db|debounce:db18|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db18|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db18|count[7]      ;
+; debounce_switches:db|debounce:db17|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db17|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db17|count[7]      ;
+; debounce_switches:db|debounce:db16|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db16|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db16|count[7]      ;
+; debounce_switches:db|debounce:db15|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db15|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db15|count[7]      ;
+; debounce_switches:db|debounce:db14|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db14|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db14|count[7]      ;
+; debounce_switches:db|debounce:db13|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db13|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db13|count[7]      ;
+; debounce_switches:db|debounce:db12|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db12|count[6],     ;
+;                                             ;                    ; debounce_switches:db|debounce:db12|count[7]      ;
+; debounce_switches:db|debounce:db11|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db11|S.ERROR       ;
+; debounce_switches:db|debounce:db11|S~5      ; Lost Fanouts       ; debounce_switches:db|debounce:db11|S.ZERO        ;
+; debounce_switches:db|debounce:db11|S~6      ; Lost Fanouts       ; debounce_switches:db|debounce:db11|S.ONE         ;
+; debounce_switches:db|debounce:db10|S~4      ; Lost Fanouts       ; debounce_switches:db|debounce:db10|S.ERROR       ;
+; debounce_switches:db|debounce:db10|S~5      ; Lost Fanouts       ; debounce_switches:db|debounce:db10|S.ZERO        ;
+; debounce_switches:db|debounce:db10|S~6      ; Lost Fanouts       ; debounce_switches:db|debounce:db10|S.ONE         ;
+; debounce_switches:db|debounce:db7|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db7|S.ERROR        ;
+; debounce_switches:db|debounce:db7|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db7|S.ZERO         ;
+; debounce_switches:db|debounce:db7|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db7|S.ONE          ;
+; debounce_switches:db|debounce:db6|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db6|S.ERROR        ;
+; debounce_switches:db|debounce:db6|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db6|S.ZERO         ;
+; debounce_switches:db|debounce:db6|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db6|S.ONE          ;
+; debounce_switches:db|debounce:db5|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db5|S.ERROR        ;
+; debounce_switches:db|debounce:db5|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db5|S.ZERO         ;
+; debounce_switches:db|debounce:db5|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db5|S.ONE          ;
+; debounce_switches:db|debounce:db4|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db4|S.ERROR        ;
+; debounce_switches:db|debounce:db4|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db4|S.ZERO         ;
+; debounce_switches:db|debounce:db4|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db4|S.ONE          ;
+; debounce_switches:db|debounce:db3|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db3|S.ERROR        ;
+; debounce_switches:db|debounce:db3|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db3|S.ZERO         ;
+; debounce_switches:db|debounce:db3|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db3|S.ONE          ;
+; debounce_switches:db|debounce:db2|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db2|S.ERROR        ;
+; debounce_switches:db|debounce:db2|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db2|S.ZERO         ;
+; debounce_switches:db|debounce:db2|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db2|S.ONE          ;
+; debounce_switches:db|debounce:db1|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db1|S.ERROR        ;
+; debounce_switches:db|debounce:db1|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db1|S.ZERO         ;
+; debounce_switches:db|debounce:db1|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db1|S.ONE          ;
+; debounce_switches:db|debounce:db0|S~4       ; Lost Fanouts       ; debounce_switches:db|debounce:db0|S.ERROR        ;
+; debounce_switches:db|debounce:db0|S~5       ; Lost Fanouts       ; debounce_switches:db|debounce:db0|S.ZERO         ;
+; debounce_switches:db|debounce:db0|S~6       ; Lost Fanouts       ; debounce_switches:db|debounce:db0|S.ONE          ;
+; debounce_switches:db|debounce:db11|count[1] ; Lost Fanouts       ; debounce_switches:db|debounce:db11|S.START       ;
+; debounce_switches:db|debounce:db10|count[1] ; Lost Fanouts       ; debounce_switches:db|debounce:db10|S.START       ;
+; debounce_switches:db|debounce:db7|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db7|S.START        ;
+; debounce_switches:db|debounce:db6|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db6|S.START        ;
+; debounce_switches:db|debounce:db5|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db5|S.START        ;
+; debounce_switches:db|debounce:db4|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db4|S.START        ;
+; debounce_switches:db|debounce:db3|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db3|S.START        ;
+; debounce_switches:db|debounce:db2|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db2|S.START        ;
+; debounce_switches:db|debounce:db1|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db1|S.START        ;
+; debounce_switches:db|debounce:db0|count[1]  ; Lost Fanouts       ; debounce_switches:db|debounce:db0|S.START        ;
++---------------------------------------------+--------------------+--------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 85    ;
+; Number of registers using Synchronous Clear  ; 35    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 66    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 52    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------+
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |vga_driver_memory_double_buf|read_buf_mem_address[13]                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db19|count[4] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db18|count[1] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db17|count[0] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db16|count[4] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db15|count[7] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db14|count[0] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db13|count[5] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db12|count[0] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db11|count[1] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db10|count[7] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db7|count[1]  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db6|count[1]  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db5|count[7]  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db4|count[7]  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db3|count[5]  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db2|count[7]  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db1|count[4]  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_driver_memory_double_buf|debounce_switches:db|debounce:db0|count[3]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |vga_driver_memory_double_buf|write_buf_mem_data[10]                      ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |vga_driver_memory_double_buf|write_buf_mem_address[12]                   ;
+; 9:1                ; 24 bits   ; 144 LEs       ; 144 LEs              ; 0 LEs                  ; No         ; |vga_driver_memory_double_buf|VGA_R                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Source assignments for vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                            ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                             ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Source assignments for vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                            ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                             ;
++---------------------------------+--------------------+------+-----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |vga_driver_memory_double_buf ;
++----------------------+------------------+----------------------------------------------------+
+; Parameter Name       ; Value            ; Type                                               ;
++----------------------+------------------+----------------------------------------------------+
+; START                ; 00000000         ; Unsigned Binary                                    ;
+; W2M_INIT             ; 00000001         ; Unsigned Binary                                    ;
+; W2M_COND             ; 00000010         ; Unsigned Binary                                    ;
+; W2M_INC              ; 00000011         ; Unsigned Binary                                    ;
+; W2M_DONE             ; 00000100         ; Unsigned Binary                                    ;
+; RFM_INIT_START       ; 00000101         ; Unsigned Binary                                    ;
+; RFM_INIT_WAIT        ; 00000110         ; Unsigned Binary                                    ;
+; RFM_DRAWING          ; 00000111         ; Unsigned Binary                                    ;
+; ERROR                ; 11111111         ; Unsigned Binary                                    ;
+; MEMORY_SIZE          ; 0100101100000000 ; Unsigned Binary                                    ;
+; PIXEL_VIRTUAL_SIZE   ; 0000000000000100 ; Unsigned Binary                                    ;
+; VGA_WIDTH            ; 0000001010000000 ; Unsigned Binary                                    ;
+; VGA_HEIGHT           ; 0000000111100000 ; Unsigned Binary                                    ;
+; VIRTUAL_PIXEL_WIDTH  ; 0000000010100000 ; Unsigned Binary                                    ;
+; VIRTUAL_PIXEL_HEIGHT ; 0000000001111000 ; Unsigned Binary                                    ;
+; MEM_INIT_WRITE       ; 00               ; Unsigned Binary                                    ;
+; MEM_M0_READ_M1_WRITE ; 01               ; Unsigned Binary                                    ;
+; MEM_M0_WRITE_M1_READ ; 10               ; Unsigned Binary                                    ;
+; MEM_ERROR            ; 11               ; Unsigned Binary                                    ;
++----------------------+------------------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db0 ;
++----------------+----------+----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                               ;
++----------------+----------+----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                    ;
+; START          ; 000      ; Unsigned Binary                                    ;
+; ONE            ; 001      ; Unsigned Binary                                    ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                    ;
+; ZERO           ; 011      ; Unsigned Binary                                    ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                    ;
+; ERROR          ; 111      ; Unsigned Binary                                    ;
++----------------+----------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db1 ;
++----------------+----------+----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                               ;
++----------------+----------+----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                    ;
+; START          ; 000      ; Unsigned Binary                                    ;
+; ONE            ; 001      ; Unsigned Binary                                    ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                    ;
+; ZERO           ; 011      ; Unsigned Binary                                    ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                    ;
+; ERROR          ; 111      ; Unsigned Binary                                    ;
++----------------+----------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db2 ;
++----------------+----------+----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                               ;
++----------------+----------+----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                    ;
+; START          ; 000      ; Unsigned Binary                                    ;
+; ONE            ; 001      ; Unsigned Binary                                    ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                    ;
+; ZERO           ; 011      ; Unsigned Binary                                    ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                    ;
+; ERROR          ; 111      ; Unsigned Binary                                    ;
++----------------+----------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db3 ;
++----------------+----------+----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                               ;
++----------------+----------+----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                    ;
+; START          ; 000      ; Unsigned Binary                                    ;
+; ONE            ; 001      ; Unsigned Binary                                    ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                    ;
+; ZERO           ; 011      ; Unsigned Binary                                    ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                    ;
+; ERROR          ; 111      ; Unsigned Binary                                    ;
++----------------+----------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db4 ;
++----------------+----------+----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                               ;
++----------------+----------+----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                    ;
+; START          ; 000      ; Unsigned Binary                                    ;
+; ONE            ; 001      ; Unsigned Binary                                    ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                    ;
+; ZERO           ; 011      ; Unsigned Binary                                    ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                    ;
+; ERROR          ; 111      ; Unsigned Binary                                    ;
++----------------+----------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db5 ;
++----------------+----------+----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                               ;
++----------------+----------+----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                    ;
+; START          ; 000      ; Unsigned Binary                                    ;
+; ONE            ; 001      ; Unsigned Binary                                    ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                    ;
+; ZERO           ; 011      ; Unsigned Binary                                    ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                    ;
+; ERROR          ; 111      ; Unsigned Binary                                    ;
++----------------+----------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db6 ;
++----------------+----------+----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                               ;
++----------------+----------+----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                    ;
+; START          ; 000      ; Unsigned Binary                                    ;
+; ONE            ; 001      ; Unsigned Binary                                    ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                    ;
+; ZERO           ; 011      ; Unsigned Binary                                    ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                    ;
+; ERROR          ; 111      ; Unsigned Binary                                    ;
++----------------+----------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db7 ;
++----------------+----------+----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                               ;
++----------------+----------+----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                    ;
+; START          ; 000      ; Unsigned Binary                                    ;
+; ONE            ; 001      ; Unsigned Binary                                    ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                    ;
+; ZERO           ; 011      ; Unsigned Binary                                    ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                    ;
+; ERROR          ; 111      ; Unsigned Binary                                    ;
++----------------+----------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db10 ;
++----------------+----------+-----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                ;
++----------------+----------+-----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                     ;
+; START          ; 000      ; Unsigned Binary                                     ;
+; ONE            ; 001      ; Unsigned Binary                                     ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                     ;
+; ZERO           ; 011      ; Unsigned Binary                                     ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                     ;
+; ERROR          ; 111      ; Unsigned Binary                                     ;
++----------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db11 ;
++----------------+----------+-----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                ;
++----------------+----------+-----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                     ;
+; START          ; 000      ; Unsigned Binary                                     ;
+; ONE            ; 001      ; Unsigned Binary                                     ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                     ;
+; ZERO           ; 011      ; Unsigned Binary                                     ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                     ;
+; ERROR          ; 111      ; Unsigned Binary                                     ;
++----------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db12 ;
++----------------+----------+-----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                ;
++----------------+----------+-----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                     ;
+; START          ; 000      ; Unsigned Binary                                     ;
+; ONE            ; 001      ; Unsigned Binary                                     ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                     ;
+; ZERO           ; 011      ; Unsigned Binary                                     ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                     ;
+; ERROR          ; 111      ; Unsigned Binary                                     ;
++----------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db13 ;
++----------------+----------+-----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                ;
++----------------+----------+-----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                     ;
+; START          ; 000      ; Unsigned Binary                                     ;
+; ONE            ; 001      ; Unsigned Binary                                     ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                     ;
+; ZERO           ; 011      ; Unsigned Binary                                     ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                     ;
+; ERROR          ; 111      ; Unsigned Binary                                     ;
++----------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db14 ;
++----------------+----------+-----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                ;
++----------------+----------+-----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                     ;
+; START          ; 000      ; Unsigned Binary                                     ;
+; ONE            ; 001      ; Unsigned Binary                                     ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                     ;
+; ZERO           ; 011      ; Unsigned Binary                                     ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                     ;
+; ERROR          ; 111      ; Unsigned Binary                                     ;
++----------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db15 ;
++----------------+----------+-----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                ;
++----------------+----------+-----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                     ;
+; START          ; 000      ; Unsigned Binary                                     ;
+; ONE            ; 001      ; Unsigned Binary                                     ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                     ;
+; ZERO           ; 011      ; Unsigned Binary                                     ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                     ;
+; ERROR          ; 111      ; Unsigned Binary                                     ;
++----------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db16 ;
++----------------+----------+-----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                ;
++----------------+----------+-----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                     ;
+; START          ; 000      ; Unsigned Binary                                     ;
+; ONE            ; 001      ; Unsigned Binary                                     ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                     ;
+; ZERO           ; 011      ; Unsigned Binary                                     ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                     ;
+; ERROR          ; 111      ; Unsigned Binary                                     ;
++----------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db17 ;
++----------------+----------+-----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                ;
++----------------+----------+-----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                     ;
+; START          ; 000      ; Unsigned Binary                                     ;
+; ONE            ; 001      ; Unsigned Binary                                     ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                     ;
+; ZERO           ; 011      ; Unsigned Binary                                     ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                     ;
+; ERROR          ; 111      ; Unsigned Binary                                     ;
++----------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db18 ;
++----------------+----------+-----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                ;
++----------------+----------+-----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                     ;
+; START          ; 000      ; Unsigned Binary                                     ;
+; ONE            ; 001      ; Unsigned Binary                                     ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                     ;
+; ZERO           ; 011      ; Unsigned Binary                                     ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                     ;
+; ERROR          ; 111      ; Unsigned Binary                                     ;
++----------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce_switches:db|debounce:db19 ;
++----------------+----------+-----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                ;
++----------------+----------+-----------------------------------------------------+
+; CALMING_WINDOW ; 01100100 ; Unsigned Binary                                     ;
+; START          ; 000      ; Unsigned Binary                                     ;
+; ONE            ; 001      ; Unsigned Binary                                     ;
+; MAYBE_ONE      ; 010      ; Unsigned Binary                                     ;
+; ZERO           ; 011      ; Unsigned Binary                                     ;
+; MAYBE_ZERO     ; 100      ; Unsigned Binary                                     ;
+; ERROR          ; 111      ; Unsigned Binary                                     ;
++----------------+----------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_driver:the_vga     ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; HA_END         ; 1001111111                       ; Unsigned Binary ;
+; HS_STA         ; 00000000000000000000001010001111 ; Unsigned Binary ;
+; HS_END         ; 00000000000000000000001011101111 ; Unsigned Binary ;
+; WIDTH          ; 1100011111                       ; Unsigned Binary ;
+; VA_END         ; 0111011111                       ; Unsigned Binary ;
+; VS_STA         ; 00000000000000000000000111101001 ; Unsigned Binary ;
+; VS_END         ; 00000000000000000000000111101011 ; Unsigned Binary ;
+; HEIGHT         ; 1000001100                       ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_frame:vga_memory0|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------+
+; Parameter Name                     ; Value                ; Type                                   ;
++------------------------------------+----------------------+----------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                         ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                ;
+; WIDTH_A                            ; 24                   ; Signed Integer                         ;
+; WIDTHAD_A                          ; 15                   ; Signed Integer                         ;
+; NUMWORDS_A                         ; 32768                ; Signed Integer                         ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                ;
+; WIDTH_B                            ; 1                    ; Untyped                                ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                         ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                ;
+; INIT_FILE                          ; image.mif            ; Untyped                                ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                ;
+; CBXI_PARAMETER                     ; altsyncram_1go1      ; Untyped                                ;
++------------------------------------+----------------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_frame:vga_memory1|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------+
+; Parameter Name                     ; Value                ; Type                                   ;
++------------------------------------+----------------------+----------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                         ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                ;
+; WIDTH_A                            ; 24                   ; Signed Integer                         ;
+; WIDTHAD_A                          ; 15                   ; Signed Integer                         ;
+; NUMWORDS_A                         ; 32768                ; Signed Integer                         ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                ;
+; WIDTH_B                            ; 1                    ; Untyped                                ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                         ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                ;
+; INIT_FILE                          ; image.mif            ; Untyped                                ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                ;
+; CBXI_PARAMETER                     ; altsyncram_1go1      ; Untyped                                ;
++------------------------------------+----------------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                  ;
++-------------------------------------------+-------------------------------------------------------+
+; Name                                      ; Value                                                 ;
++-------------------------------------------+-------------------------------------------------------+
+; Number of entity instances                ; 2                                                     ;
+; Entity Instance                           ; vga_frame:vga_memory0|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                           ;
+;     -- WIDTH_A                            ; 24                                                    ;
+;     -- NUMWORDS_A                         ; 32768                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                          ;
+;     -- WIDTH_B                            ; 1                                                     ;
+;     -- NUMWORDS_B                         ; 1                                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                             ;
+; Entity Instance                           ; vga_frame:vga_memory1|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                           ;
+;     -- WIDTH_A                            ; 24                                                    ;
+;     -- NUMWORDS_A                         ; 32768                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                          ;
+;     -- WIDTH_B                            ; 1                                                     ;
+;     -- NUMWORDS_B                         ; 1                                                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                             ;
++-------------------------------------------+-------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_driver:the_vga"                                                                          ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; active_pixels ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "debounce_switches:db"                                                                                                                           ;
++-------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                                                        ;
++-------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; SW    ; Input  ; Warning  ; Input port expression (10 bits) is smaller than the input port (18 bits) it drives.  Extra input bit(s) "SW[17..10]" will be connected to GND. ;
+; SW_db ; Output ; Warning  ; Output or bidir port (18 bits) is wider than the port expression (10 bits) it drives; bit(s) "SW_db[17..10]" have no fanouts                   ;
+; SW_db ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                            ;
++-------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 85                          ;
+;     CLR               ; 29                          ;
+;     ENA               ; 15                          ;
+;     ENA CLR           ; 2                           ;
+;     ENA CLR SCLR      ; 35                          ;
+;     plain             ; 4                           ;
+; arriav_lcell_comb     ; 279                         ;
+;     arith             ; 51                          ;
+;         1 data inputs ; 51                          ;
+;     normal            ; 204                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 53                          ;
+;         4 data inputs ; 34                          ;
+;         5 data inputs ; 44                          ;
+;         6 data inputs ; 59                          ;
+;     shared            ; 24                          ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 7                           ;
+;         4 data inputs ; 3                           ;
+; boundary_port         ; 82                          ;
+; stratixv_ram_block    ; 192                         ;
+;                       ;                             ;
+; Max LUT depth         ; 3.70                        ;
+; Average LUT depth     ; 2.12                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Thu Oct 31 11:46:22 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga_driver_memory_double_buf -c vga_driver_memory_double_buf
+Info (20030): Parallel compilation is enabled and will use 16 of the 20 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file vga_frame.v
+    Info (12023): Found entity 1: vga_frame File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_frame.v Line: 40
+Warning (10229): Verilog HDL Expression warning at debounce.v(47): truncated literal to match 3 bits File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 47
+Info (12021): Found 2 design units, including 2 entities, in source file debounce.v
+    Info (12023): Found entity 1: debounce_switches File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 1
+    Info (12023): Found entity 2: debounce File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file vga_driver_memory_double_buf.v
+    Info (12023): Found entity 1: vga_driver_memory_double_buf File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_driver.v
+    Info (12023): Found entity 1: vga_driver File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver.v Line: 11
+Info (12127): Elaborating entity "vga_driver_memory_double_buf" for the top level hierarchy
+Info (10264): Verilog HDL Case Statement information at vga_driver_memory_double_buf.v(187): all case item expressions in this case statement are onehot File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 187
+Info (10264): Verilog HDL Case Statement information at vga_driver_memory_double_buf.v(256): all case item expressions in this case statement are onehot File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 256
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(368): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 368
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(371): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 371
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(380): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 380
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(384): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 384
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(392): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 392
+Warning (10230): Verilog HDL assignment warning at vga_driver_memory_double_buf.v(397): truncated value with size 16 to match size of target (15) File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 397
+Warning (10034): Output port "LEDR" at vga_driver_memory_double_buf.v(55) has no driver File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+Info (12128): Elaborating entity "debounce_switches" for hierarchy "debounce_switches:db" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 112
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce_switches:db|debounce:db0" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 8
+Info (10264): Verilog HDL Case Statement information at debounce.v(59): all case item expressions in this case statement are onehot File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 59
+Info (10264): Verilog HDL Case Statement information at debounce.v(95): all case item expressions in this case statement are onehot File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/debounce.v Line: 95
+Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_driver:the_vga" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 143
+Info (12128): Elaborating entity "vga_frame" for hierarchy "vga_frame:vga_memory0" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 335
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_frame.v Line: 86
+Info (12130): Elaborated megafunction instantiation "vga_frame:vga_memory0|altsyncram:altsyncram_component" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_frame.v Line: 86
+Info (12133): Instantiated megafunction "vga_frame:vga_memory0|altsyncram:altsyncram_component" with the following parameter: File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_frame.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "image.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "32768"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "15"
+    Info (12134): Parameter "width_a" = "24"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_1go1.tdf
+    Info (12023): Found entity 1: altsyncram_1go1 File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_1go1" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_8la.tdf
+    Info (12023): Found entity 1: decode_8la File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/decode_8la.tdf Line: 23
+Info (12128): Elaborating entity "decode_8la" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_8la:decode3" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_11a.tdf
+    Info (12023): Found entity 1: decode_11a File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/decode_11a.tdf Line: 23
+Info (12128): Elaborating entity "decode_11a" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_11a:rden_decode" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 45
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_6hb.tdf
+    Info (12023): Found entity 1: mux_6hb File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/mux_6hb.tdf Line: 23
+Info (12128): Elaborating entity "mux_6hb" for hierarchy "vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|mux_6hb:mux2" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/db/altsyncram_1go1.tdf Line: 46
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX0[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 40
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 41
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 42
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 43
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 55
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 80
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 315 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[9]" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 64
+    Warning (15610): No output dependent on input pin "SW[8]" File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver_memory_double_buf.v Line: 64
+Info (21057): Implemented 554 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 67 output pins
+    Info (21061): Implemented 280 logic cells
+    Info (21064): Implemented 192 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
+    Info: Peak virtual memory: 4892 megabytes
+    Info: Processing ended: Thu Oct 31 11:46:33 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:03
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/output_files/vga_driver_memory_double_buf.map.smsg.
+
+

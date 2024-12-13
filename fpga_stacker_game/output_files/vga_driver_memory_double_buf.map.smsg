@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at vga_driver.v(60): always construct contains both blocking and non-blocking assignments File: H:/TEACHING/ECE_287/FALL_2024/LABS/FALL_12_LABS_DE1_SOC/VGA_ON_DE1_SOC_from_last_years/vga_driver_memory_double_buf/vga_driver.v Line: 60
